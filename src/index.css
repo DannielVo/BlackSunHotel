@@ -15,3 +15,11 @@
   --history-heading: #9b8b82;
   --history-title: #1a1a1a;
 }
+
+.white-bg {
+  background-color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
