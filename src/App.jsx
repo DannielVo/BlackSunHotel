@@ -5,6 +5,7 @@ import Bookingbar from "./components/bookingbar/Bookingbar";
 import History from "./pages/sections/history/History";
 import Rooms from "./pages/sections/rooms/Rooms";
 import Slider from "./pages/sections/slider/Slider";
+import HotelServices from "./pages/sections/hotel-services/HotelServices";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <History></History>
         <Rooms></Rooms>
         <Slider></Slider>
+        <HotelServices></HotelServices>
       </main>
     </div>
   );
