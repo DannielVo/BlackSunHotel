@@ -6,6 +6,7 @@ import History from "./pages/sections/history/History";
 import Rooms from "./pages/sections/rooms/Rooms";
 import Slider from "./pages/sections/slider/Slider";
 import HotelServices from "./pages/sections/hotel-services/HotelServices";
+import HotelLocation from "./pages/sections/hotel-location/HotelLocation";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Rooms></Rooms>
         <Slider></Slider>
         <HotelServices></HotelServices>
+        <HotelLocation></HotelLocation>
       </main>
     </div>
   );
