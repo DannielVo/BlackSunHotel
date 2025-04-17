@@ -4,6 +4,7 @@ import Hero from "./components/hero/Hero";
 import Bookingbar from "./components/bookingbar/Bookingbar";
 import History from "./pages/sections/history/History";
 import Rooms from "./pages/sections/rooms/Rooms";
+import Slider from "./pages/sections/slider/Slider";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Bookingbar></Bookingbar>
         <History></History>
         <Rooms></Rooms>
+        <Slider></Slider>
       </main>
     </div>
   );
