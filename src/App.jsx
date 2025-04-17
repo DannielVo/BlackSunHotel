@@ -7,6 +7,7 @@ import Rooms from "./pages/sections/rooms/Rooms";
 import Slider from "./pages/sections/slider/Slider";
 import HotelServices from "./pages/sections/hotel-services/HotelServices";
 import HotelLocation from "./pages/sections/hotel-location/HotelLocation";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <HotelServices></HotelServices>
         <HotelLocation></HotelLocation>
       </main>
+      <Footer></Footer>
     </div>
   );
 };
