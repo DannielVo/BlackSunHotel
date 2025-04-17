@@ -34,6 +34,16 @@ const Bookingbar = () => {
           </div>
         </div>
 
+        {/* <!-- Rooms --> */}
+        <div class="booking-item vertical-center">
+          <label>ROOMS</label>
+          <div class="counter">
+            <button onclick="changeValue('adults', -1)">-</button>
+            <span id="rooms-quantity">1</span>
+            <button onclick="changeValue('adults', 1)">+</button>
+          </div>
+        </div>
+
         {/* Adults */}
         <div class="booking-item vertical-center">
           <label>ADULTS</label>
