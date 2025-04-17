@@ -6,32 +6,32 @@ const Header = () => {
   return (
     <>
       <header>
-        <div class="nav-group left">
-          <a href="test2.html" class="logo">
+        <div className="nav-group left">
+          <a href="test2.html" className="logo">
             <img src={assets.logo} />
           </a>
-          <a href="Login.html" class="nav-link">
+          <a href="Login.html" className="nav-link">
             Black Sun Member
           </a>
         </div>
 
-        <div class="nav-group center">
-          <a href="#history" class="nav-link">
+        <div className="nav-group center">
+          <a href="#history" className="nav-link">
             History
           </a>
-          <a href="#rooms" class="nav-link">
+          <a href="#rooms" className="nav-link">
             Rooms
           </a>
-          <a href="#services" class="nav-link">
+          <a href="#services" className="nav-link">
             Services
           </a>
         </div>
 
-        <div class="nav-group right">
-          <a href="Login.html" class="nav-link">
+        <div className="nav-group right">
+          <a href="Login.html" className="nav-link">
             Login
           </a>
-          <a href="SignUp.html" class="nav-link">
+          <a href="SignUp.html" className="nav-link">
             Sign up
           </a>
         </div>

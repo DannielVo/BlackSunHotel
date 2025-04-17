@@ -27,15 +27,15 @@ const Footer = () => {
   };
   return (
     <>
-      <footer class="footer">
-        <div class="footer-content">
+      <footer className="footer">
+        <div className="footer-content">
           {/* <!-- LOGO --> */}
-          <div class="footer-logo">
+          <div className="footer-logo">
             <img src={assets.logo} alt="Black Sun Hotel Logo" />
           </div>
 
           {/* <!-- Hotel Information --> */}
-          <div class="footer-info">
+          <div className="footer-info">
             <h4>Hotel Information</h4>
             <ul>
               <li>
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
 
           {/* <!-- Terms & Policies --> */}
-          <div class="footer-info">
+          <div className="footer-info">
             <h4>Terms & Policies</h4>
             <ul>
               <li>
@@ -65,7 +65,7 @@ const Footer = () => {
           </div>
 
           {/* <!-- Contact Us --> */}
-          <div class="footer-info">
+          <div className="footer-info">
             <h4>Contact Us</h4>
             <ul>
               <li>+84 28 1234 5678</li>
@@ -76,54 +76,54 @@ const Footer = () => {
         </div>
 
         {/* <!-- Footer-social --> */}
-        <div class="footer-bottom">
-          <div class="footer-social">
+        <div className="footer-bottom">
+          <div className="footer-social">
             <a
               href="#"
-              class="social-icon"
+              className="social-icon"
               data-copy="+84 28 1234 5678"
               title="Copy phone number"
               onClick={(e) => copyToast(e, "+84 28 1234 5678")}
             >
-              <i class="bx bxs-phone"></i>
+              <i className="bx bxs-phone"></i>
             </a>
             <a
               href="#"
-              class="social-icon"
+              className="social-icon"
               data-copy="https://www.facebook.com/BlackSunHotel"
               title="Copy Facebook link"
               onClick={(e) =>
                 copyToast(e, "https://www.facebook.com/BlackSunHotel")
               }
             >
-              <i class="bx bxl-facebook-circle"></i>
+              <i className="bx bxl-facebook-circle"></i>
             </a>
             <a
               href="#"
-              class="social-icon"
+              className="social-icon"
               data-copy="https://www.youtube.com/@BlackSunHotel"
               title="Copy YouTube link"
               onClick={(e) =>
                 copyToast(e, "https://www.youtube.com/@BlackSunHotel")
               }
             >
-              <i class="bx bxl-youtube"></i>
+              <i className="bx bxl-youtube"></i>
             </a>
             <a
               href="#"
-              class="social-icon"
+              className="social-icon"
               data-copy="info@blacksunhotel.vn"
               title="Copy email"
               onClick={(e) => copyToast(e, "info@blacksunhotel.vn")}
             >
-              <i class="bx bx-envelope"></i>
+              <i className="bx bx-envelope"></i>
             </a>
           </div>
           <p>© 2025 Black Sun Hotel. All Rights Reserved</p>
         </div>
 
         {/* <!-- Notification Toast --> */}
-        <div id="copy-toast" class="copy-toast">
+        <div id="copy-toast" className="copy-toast">
           Copy to clipboard
         </div>
       </footer>

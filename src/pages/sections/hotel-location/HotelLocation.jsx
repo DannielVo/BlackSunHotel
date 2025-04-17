@@ -5,9 +5,9 @@ const HotelLocation = () => {
   return (
     <>
       {" "}
-      <section class="location">
-        <div class="location-content">
-          <div class="location-info">
+      <section className="location">
+        <div className="location-content">
+          <div className="location-info">
             <h3>ADDRESS</h3>
             <p>
               123 Yersin St., Phuong Sai Ward, Nha Trang City, Khanh Hoa
@@ -26,7 +26,7 @@ const HotelLocation = () => {
             <p>1.8 km from 19-8 Nha Trang Stadium</p>
           </div>
 
-          <div class="location-map">
+          <div className="location-map">
             {/* <!-- <img src="img/Location.jpg" alt="Map location of hotel" /> --> */}
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.98320023374!2d109.17850728306422!3d12.24941599938653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31705d7f224bc3e3%3A0xb4dd2cf442a27999!2zMTIzIFllcnNpbiwgUGjGsMahbmcgU8OgaSwgTmhhIFRyYW5nLCBLaMOhbmggSMOyYSA2NTAwMDAsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1743869385661!5m2!1svi!2s"

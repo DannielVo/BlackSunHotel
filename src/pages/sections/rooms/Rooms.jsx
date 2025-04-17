@@ -6,11 +6,11 @@ const Rooms = () => {
   return (
     <>
       {" "}
-      <section id="rooms" class="rooms-section white-bg">
-        <div class="container">
-          <h2 class="room-title">Accommodation</h2>
+      <section id="rooms" className="rooms-section white-bg">
+        <div className="container">
+          <h2 className="room-title">Accommodation</h2>
 
-          <div class="room-cards">
+          <div className="room-cards">
             <RoomItem></RoomItem>
             <RoomItem></RoomItem>
             <RoomItem></RoomItem>

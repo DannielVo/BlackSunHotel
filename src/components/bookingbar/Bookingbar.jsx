@@ -17,54 +17,54 @@ const Bookingbar = () => {
   }, []);
   return (
     <>
-      <section class="booking-bar" id="booking-bar">
+      <section className="booking-bar" id="booking-bar">
         {/*  Check in / Check out */}
-        <div class="booking-item">
-          <div class="date-wrapper" id="date-wrapper">
-            <label for="checkin">Check-in / Check-out</label>
-            <div class="date-input-wrapper">
+        <div className="booking-item">
+          <div className="date-wrapper" id="date-wrapper">
+            <label htmlFor="checkin">Check-in / Check-out</label>
+            <div className="date-input-wrapper">
               <input
                 ref={checkinRef}
                 id="checkin"
-                class="date-input flatpickr-input"
+                className="date-input flatpickr-input"
                 placeholder="Select dates"
               />
-              <i class="bx bx-chevron-down"></i>
+              <i className="bx bx-chevron-down"></i>
             </div>
           </div>
         </div>
 
         {/* <!-- Rooms --> */}
-        <div class="booking-item vertical-center">
+        <div className="booking-item vertical-center">
           <label>ROOMS</label>
-          <div class="counter">
-            <button onclick="changeValue('adults', -1)">-</button>
+          <div className="counter">
+            <button onClick="changeValue('adults', -1)">-</button>
             <span id="rooms-quantity">1</span>
-            <button onclick="changeValue('adults', 1)">+</button>
+            <button onClick="changeValue('adults', 1)">+</button>
           </div>
         </div>
 
         {/* Adults */}
-        <div class="booking-item vertical-center">
+        <div className="booking-item vertical-center">
           <label>ADULTS</label>
-          <div class="counter">
-            <button onclick="changeValue('adults', -1)">-</button>
+          <div className="counter">
+            <button onClick="changeValue('adults', -1)">-</button>
             <span id="adults">1</span>
-            <button onclick="changeValue('adults', 1)">+</button>
+            <button onClick="changeValue('adults', 1)">+</button>
           </div>
         </div>
 
         {/*  Children  */}
-        <div class="booking-item vertical-center">
+        <div className="booking-item vertical-center">
           <label>CHILDREN</label>
-          <div class="counter">
-            <button onclick="changeValue('children', -1)">-</button>
+          <div className="counter">
+            <button onClick="changeValue('children', -1)">-</button>
             <span id="children">1</span>
-            <button onclick="changeValue('children', 1)">+</button>
+            <button onClick="changeValue('children', 1)">+</button>
           </div>
         </div>
 
-        <button class="check-btn">CHECK AVAILABILITY</button>
+        <button className="check-btn">CHECK AVAILABILITY</button>
       </section>
     </>
   );

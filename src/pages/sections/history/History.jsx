@@ -4,15 +4,15 @@ import "./history.css";
 const History = () => {
   return (
     <>
-      <section id="history" class="history-section white-bg">
-        <div class="hotel-brand">
-          <h2 class="hotel-name">BLACK SUN</h2>
-          <p class="hotel-tagline">HOTELS & RESORTS</p>
+      <section id="history" className="history-section white-bg">
+        <div className="hotel-brand">
+          <h2 className="hotel-name">BLACK SUN</h2>
+          <p className="hotel-tagline">HOTELS & RESORTS</p>
         </div>
 
-        <h1 class="history-title">A journey through Black Sun's History</h1>
+        <h1 className="history-title">A journey through Black Sun's History</h1>
 
-        <p class="history-text">
+        <p className="history-text">
           Today, Black Sun Hotels & Resorts proudly operates a network of
           premium hotels across key cities in Vietnam, serving thousands of
           guests each year. Our journey from a single boutique hotel to a symbol
