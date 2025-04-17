@@ -3,6 +3,7 @@ import Header from "./components/header/Header";
 import Hero from "./components/hero/Hero";
 import Bookingbar from "./components/bookingbar/Bookingbar";
 import History from "./pages/sections/history/History";
+import Rooms from "./pages/sections/rooms/Rooms";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Hero></Hero>
         <Bookingbar></Bookingbar>
         <History></History>
+        <Rooms></Rooms>
       </main>
     </div>
   );
