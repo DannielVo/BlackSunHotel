@@ -123,7 +123,7 @@ const Footer = () => {
         </div>
 
         {/* <!-- Notification Toast --> */}
-        <div id="copy-toast" className="copy-toast">
+        <div id="copy-toast" className="copy-toast" ref={toastRef}>
           Copy to clipboard
         </div>
       </footer>
