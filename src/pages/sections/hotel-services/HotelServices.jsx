@@ -1,5 +1,6 @@
 import React from "react";
 import "./hotelServices.css";
+import { SERVICES_LIST } from "../../../assets/assets";
 
 const HotelServices = () => {
   return (
@@ -14,43 +15,14 @@ const HotelServices = () => {
           </p>
 
           <div className="services-list">
-            <div className="service-item">
-              <i className="bx bxs-bowl-hot"></i>
-              <span>Cuisine</span>
-            </div>
-
-            <div className="service-item">
-              <i className="bx bx-closet"></i>
-              <span>Cleaning services</span>
-            </div>
-
-            <div className="service-item">
-              <i className="bx bx-swim"></i>
-              <span>Outdoor swimming pool</span>
-            </div>
-
-            <div className="service-item">
-              <i className="bx bx-spa"></i>
-              <span>Spa treatment</span>
-            </div>
-
-            <div className="service-item">
-              <i className="bx bx-child"></i>
-              <span>Kids club</span>
-            </div>
-            <div className="service-item">
-              <i className="bx bx-dumbbell"></i>
-              <span>Fitness center</span>
-            </div>
-            <div className="service-item">
-              <i className="bx bxs-bus"></i>
-              <span>Airport hotel transfer</span>
-            </div>
-
-            <div className="service-item">
-              <i className="bx bxs-parking"></i>
-              <span>Parking</span>
-            </div>
+            {SERVICES_LIST.length === 0
+              ? ""
+              : SERVICES_LIST.map((item, index) => (
+                  <div className="service-item" key={`service ${index}`}>
+                    <i className={item.icon}></i>
+                    <span>{item.serviceName}</span>
+                  </div>
+                ))}
 
             <div className="learn-more">
               <a href="services-detail.html" target="_blank">

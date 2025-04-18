@@ -2,23 +2,17 @@ import React from "react";
 import "./roomItem.css";
 import { assets } from "../../assets/assets";
 
-const RoomItem = () => {
+const RoomItem = ({ title, type, description, img }) => {
   return (
     <>
       <div className="room-card">
         <div className="room-image">
-          <img src={assets.bed1} alt="Economy Room" />
+          <img src={img} alt={title} />
         </div>
         <div className="room-content">
-          <h3 className="card-title">Economy Room</h3>
-          <p className="room-type">
-            CITY VIEW | DOUBLE BED OR TWO SINGLE BEDS | 41 M²
-          </p>
-          <p className="room-description">
-            Comfortable and spacious room with views over the city featuring a
-            double bed or 2 single beds, LCD TV, minibar, safe, and a range of
-            quality amenities and excellent services.
-          </p>
+          <h3 className="card-title">{title}</h3>
+          <p className="room-type">{type}</p>
+          <p className="room-description">{description}</p>
           <button className="book-now-btn">Book now</button>
         </div>
       </div>

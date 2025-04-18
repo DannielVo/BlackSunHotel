@@ -1,6 +1,7 @@
 import React from "react";
 import "./rooms.css";
 import RoomItem from "../../../components/room-item/RoomItem";
+import { ROOM_LIST } from "../../../assets/assets";
 
 const Rooms = () => {
   return (
@@ -11,9 +12,17 @@ const Rooms = () => {
           <h2 className="room-title">Accommodation</h2>
 
           <div className="room-cards">
-            <RoomItem></RoomItem>
-            <RoomItem></RoomItem>
-            <RoomItem></RoomItem>
+            {ROOM_LIST.length === 0
+              ? ""
+              : ROOM_LIST.map((item, index) => (
+                  <RoomItem
+                    key={`room ${index}`}
+                    title={item.title}
+                    type={item.type}
+                    description={item.description}
+                    img={item.img}
+                  ></RoomItem>
+                ))}
           </div>
         </div>
       </section>
