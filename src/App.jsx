@@ -11,8 +11,8 @@ import Footer from "./components/footer/Footer";
 import { Route, Router, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ServicesDetails from "./pages/servicesDetails/ServicesDetails";
-import BlankPage from "./pages/BlankPAge";
 import Policy from "./pages/policy/Policy";
+import PlainPage from "./pages/PlainPage";
 
 const App = () => {
   const plainPages = [
@@ -45,7 +45,7 @@ const App = () => {
         <Route
           key={path}
           path={path}
-          element={<BlankPage>{component}</BlankPage>}
+          element={<PlainPage>{component}</PlainPage>}
         ></Route>
       ))}
     </Routes>
