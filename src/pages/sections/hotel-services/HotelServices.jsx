@@ -1,6 +1,7 @@
 import React from "react";
 import "./hotelServices.css";
 import { SERVICES_LIST } from "../../../assets/assets";
+import { Link } from "react-router-dom";
 
 const HotelServices = () => {
   return (
@@ -25,9 +26,9 @@ const HotelServices = () => {
                 ))}
 
             <div className="learn-more">
-              <a href="services-detail.html" target="_blank">
+              <Link target="_blank" to={"/services-details"}>
                 Learn more
-              </a>
+              </Link>
             </div>
           </div>
         </div>

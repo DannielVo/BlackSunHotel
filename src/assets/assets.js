@@ -85,3 +85,76 @@ export const SERVICES_LIST = [
     serviceName: "Parking",
   },
 ];
+
+export const SERVICES_DETAILS = [
+  {
+    icon: "bx bxs-bus",
+    title: "Transportation",
+    items: ["Airport hotel transfer"],
+  },
+  {
+    icon: "bx bx-handicap",
+    title: "Accessibility",
+    items: ["Ramp at entrance", "Lift"],
+  },
+  {
+    icon: "bx bxs-cat",
+    title: "Pets",
+    items: ["Pets not allowed"],
+  },
+  {
+    icon: "bx bx-help-circle",
+    title: "Reception services",
+    items: [
+      "24 hours reception",
+      "Luggage storage service",
+      "Early check in available",
+      "Late check out available",
+    ],
+  },
+  {
+    icon: "bx bx-shield-x",
+    title: "Safety security",
+    items: [
+      "24 hours security",
+      "CCTV/Cameras in common areas",
+      "Smoke alarms",
+      "Fire extinguisher",
+    ],
+  },
+  {
+    icon: "bx bx-wifi-2",
+    title: "Internet",
+    items: ["Free wi-fi"],
+  },
+  {
+    icon: "bx bxs-bowl-hot",
+    title: "Cuisine",
+    items: ["Restaurant", "Pool bar", "Room service"],
+  },
+  {
+    icon: "bx bx-closet",
+    title: "Cleaning services",
+    items: ["Daily housekeeping"],
+  },
+  {
+    icon: "bx bx-swim",
+    title: "Swimming pool",
+    items: ["Outdoor swimming pool", "Indoor swimming pool"],
+  },
+  {
+    icon: "bx bx-spa",
+    title: "Beauty and wellness",
+    items: ["Spa treatment"],
+  },
+  {
+    icon: "bx bx-dumbbell",
+    title: "Sport activities",
+    items: ["Fitness center", "Gym"],
+  },
+  {
+    icon: "bx bx-child",
+    title: "Family and children",
+    items: ["Kids club"],
+  },
+];
