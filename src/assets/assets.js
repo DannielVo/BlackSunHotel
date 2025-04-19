@@ -158,3 +158,63 @@ export const SERVICES_DETAILS = [
     items: ["Kids club"],
   },
 ];
+
+export const POLICY = [
+  {
+    name: "Information We Collect",
+    items: [
+      `We may collect personal information when you make a reservation,
+                check in, or use our services. This may include your name,
+                address, email, phone number, payment details, and other
+                information you voluntarily provide.`,
+      ` When you visit our website, we may collect technical data such
+                as your IP address, browser type, operating system, referring
+                URLs, and usage patterns. This information helps us analyze
+                trends and improve the performance of our services.`,
+    ],
+  },
+
+  {
+    name: "How We Use Your Information",
+    items: [
+      `Your information is used to process bookings, personalize your
+                experience, respond to your requests, and provide updates about
+                our hotel and amenities.`,
+      ` With your consent, we may send you promotional offers,
+                newsletters, or event updates. You can opt out at any time via
+                the unsubscribe link or by contacting us.`,
+      `We may use or disclose your information to comply with legal
+                obligations or protect the rights, property, or safety of Black
+                Sun, our guests, or others.`,
+    ],
+  },
+
+  {
+    name: "Data Security",
+    items: [
+      ` We apply appropriate technical and organizational measures to
+                safeguard your personal data. However, please note that no
+                internet-based system can be guaranteed 100% secure.`,
+    ],
+  },
+
+  {
+    name: "Your Choices",
+    items: [
+      `You may request to access, update, or correct your personal
+                information by contacting us.`,
+      `You can unsubscribe from promotional communications at any time
+                via the provided links or by reaching out to us.`,
+    ],
+  },
+
+  {
+    name: "Children’s Privacy",
+    items: [
+      `Our services are not intended for children under 16. We do not
+                knowingly collect data from anyone under this age. If you
+                believe a child has provided us with personal information,
+                please contact us immediately.`,
+    ],
+  },
+];

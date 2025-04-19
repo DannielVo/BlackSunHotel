@@ -12,12 +12,17 @@ import { Route, Router, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ServicesDetails from "./pages/servicesDetails/ServicesDetails";
 import BlankPage from "./pages/BlankPAge";
+import Policy from "./pages/policy/Policy";
 
 const App = () => {
   const plainPages = [
     {
       path: "/services-details",
       component: <ServicesDetails></ServicesDetails>,
+    },
+    {
+      path: "/policy-details",
+      component: <Policy></Policy>,
     },
   ];
   return (

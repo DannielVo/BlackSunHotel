@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import "./footer.css";
 import { assets } from "../../assets/assets";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   const toastRef = useRef(null);
 
   const handleCopy = (textToCopy) => {
@@ -52,7 +54,7 @@ const Footer = () => {
             <h4>Terms & Policies</h4>
             <ul>
               <li>
-                <a href="privacy-policy.html" target="_blank">
+                <a onClick={() => navigate("/policy-details")} target="_blank">
                   Privacy Policy
                 </a>
               </li>

@@ -38,6 +38,7 @@
 .footer-info ul li a {
   color: var(--text-color);
   text-decoration: none;
+  cursor: pointer;
 }
 
 .footer-info ul li a:hover {
