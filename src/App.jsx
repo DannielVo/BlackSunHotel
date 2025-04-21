@@ -13,6 +13,7 @@ import HomePage from "./pages/HomePage";
 import ServicesDetails from "./pages/servicesDetails/ServicesDetails";
 import Policy from "./pages/policy/Policy";
 import PlainPage from "./pages/PlainPage";
+import BookingCancel from "./pages/bookingCancel/BookingCancel";
 
 const App = () => {
   const plainPages = [
@@ -23,6 +24,10 @@ const App = () => {
     {
       path: "/policy-details",
       component: <Policy></Policy>,
+    },
+    {
+      path: "/booking-cancel",
+      component: <BookingCancel></BookingCancel>,
     },
   ];
   return (

@@ -54,12 +54,12 @@ const Footer = () => {
             <h4>Terms & Policies</h4>
             <ul>
               <li>
-                <a onClick={() => navigate("/policy-details")} target="_blank">
+                <a onClick={() => navigate("/policy-details")}>
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="booking-cancel.html" target="_blank">
+                <a onClick={() => navigate("/booking-cancel")}>
                   Booking & Cancellation
                 </a>
               </li>

@@ -220,3 +220,49 @@ export const POLICY = [
     ],
   },
 ];
+
+export const BOOKING_CANCEL = [
+  {
+    name: "Check-in & Check-out",
+    items: [
+      "Check-in time: from 13:30",
+      "Check-out time: before 12:00",
+      `Early check-in and late check-out are subject to availability.
+                Please contact the reception directly to arrange.`,
+    ],
+  },
+  {
+    name: "Children & Extra Beds",
+    items: [
+      `Children aged 5 to 11 using existing bedding: 200,000 VND per
+              child per night`,
+      {
+        name: `Children aged 5 to 11 sharing a room with parents require an extra
+              bed, charged at:`,
+        items: [
+          `710,000 VND per night (Sunday to Friday)`,
+          `1,150,000 VND per night (Saturday and Holidays)`,
+        ],
+      },
+      {
+        name: `Third person aged 12 and above (includes breakfast & extra bed):`,
+        items: [
+          `710,000 VND per night (Sunday to Friday)`,
+          `1,150,000 VND per night (Saturday and Holidays)`,
+        ],
+      },
+    ],
+  },
+  {
+    name: "Room Rates",
+    items: [`All prices include VAT and a 5% service charge.`],
+  },
+  {
+    name: "Cancellation Policy",
+    items: [
+      `Cancellation and prepayment policies vary depending on the room
+                type and rate plan. Please check the specific conditions when
+                selecting your accommodation.`,
+    ],
+  },
+];
