@@ -16,6 +16,8 @@ export const assets = {
   slide4,
 };
 
+export const SLIDER_IMG = [slide1, slide2, slide3, slide4];
+
 export const ROOM_LIST = [
   {
     id: 0,

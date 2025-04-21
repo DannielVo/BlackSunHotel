@@ -5,7 +5,7 @@ import { Navigation } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import { assets } from "../../../assets/assets";
+import { assets, SLIDER_IMG } from "../../../assets/assets";
 import "./slider.css";
 
 const Slider = () => {
@@ -24,18 +24,11 @@ const Slider = () => {
           className="slider"
         >
           <div className="slider-container">
-            <SwiperSlide className="slide">
-              <img src={assets.slide1} alt="Image 1" />
-            </SwiperSlide>
-            <SwiperSlide className="slide">
-              <img src={assets.slide2} alt="Image 2" />
-            </SwiperSlide>
-            <SwiperSlide className="slide">
-              <img src={assets.slide3} alt="Image 3" />
-            </SwiperSlide>
-            <SwiperSlide className="slide">
-              <img src={assets.slide4} alt="Image 4" />
-            </SwiperSlide>
+            {SLIDER_IMG.map((item, index) => (
+              <SwiperSlide key={`slide ${index}`} className="slide">
+                <img src={item} alt={`Image ${index + 1}`} />
+              </SwiperSlide>
+            ))}
           </div>
         </Swiper>
 
