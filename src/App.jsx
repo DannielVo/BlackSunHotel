@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/header/Header";
-import Hero from "./components/hero/Hero";
+import Hero from "./pages/sections/hero/Hero";
 import Bookingbar from "./components/bookingbar/Bookingbar";
 import History from "./pages/sections/history/History";
 import Rooms from "./pages/sections/rooms/Rooms";

@@ -1,6 +1,6 @@
 .hero {
   height: 100vh;
-  background-image: url("../../assets/Home.webp");
+  background-image: url("../../../assets/Home.webp");
   background-size: cover;
   background-position: center;
   display: flex;

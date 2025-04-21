@@ -4,7 +4,7 @@ import "./hero.css";
 const Hero = () => {
   return (
     <>
-      <section className="hero"></section>
+      <section className="hero" id="hero"></section>
     </>
   );
 };
