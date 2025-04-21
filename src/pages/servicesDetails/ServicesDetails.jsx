@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./servicesDetails.css";
 import { SERVICES_DETAILS } from "../../assets/assets";
 import { Link } from "react-router-dom";
@@ -11,6 +11,9 @@ const ServicesDetails = () => {
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
     );
   };
+  useEffect(() => {
+    document.title = "Service Details";
+  }, []);
   return (
     <div className="service-wrapper">
       {" "}

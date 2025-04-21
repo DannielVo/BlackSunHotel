@@ -26,9 +26,7 @@ const HotelServices = () => {
                 ))}
 
             <div className="learn-more">
-              <Link target="_blank" to={"/services-details"}>
-                Learn more
-              </Link>
+              <Link to={"/services-details"}>Learn more</Link>
             </div>
           </div>
         </div>

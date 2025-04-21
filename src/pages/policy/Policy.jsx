@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./policy.css";
 import { POLICY } from "../../assets/assets";
 import { Link } from "react-router-dom";
@@ -11,6 +11,9 @@ const Policy = () => {
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
     );
   };
+  useEffect(() => {
+    document.title = "Privacy Policy";
+  }, []);
   return (
     <div className="policy-container">
       <div className="wrapper">
