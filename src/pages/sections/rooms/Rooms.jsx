@@ -8,7 +8,7 @@ const Rooms = () => {
     <>
       {" "}
       <section id="rooms" className="rooms-section white-bg">
-        <div className="container">
+        <div className="rooms-container">
           <h2 className="room-title">Accommodation</h2>
 
           <div className="room-cards">

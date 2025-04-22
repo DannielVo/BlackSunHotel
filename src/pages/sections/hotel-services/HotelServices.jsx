@@ -8,7 +8,7 @@ const HotelServices = () => {
     <>
       {" "}
       <section id="services" className="services-section white-bg">
-        <div className="container">
+        <div className="services-container">
           <h2>Services and Facilities</h2>
           <p className="services-desc">
             Discover the wide range of services and facilities that ensure a

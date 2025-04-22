@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <div className="login-wrapper">
       {" "}
-      <div className="container">
+      <div className="login-container">
         <h1>Login</h1>
 
         <div className="input-box">

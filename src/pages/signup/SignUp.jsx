@@ -6,7 +6,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   return (
     <div className="signup-wrapper">
-      <div className="container">
+      <div className="signup-container">
         <h1>Sign up</h1>
 
         <div className="input-box">
