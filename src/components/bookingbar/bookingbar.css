@@ -47,15 +47,6 @@
   margin-bottom: 5px;
 }
 
-.input-box {
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--text-color);
-  color: var(--text-color);
-  padding: 5px;
-  width: 120px;
-}
-
 .counter {
   display: flex;
   align-items: center;

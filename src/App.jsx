@@ -14,6 +14,7 @@ import ServicesDetails from "./pages/servicesDetails/ServicesDetails";
 import Policy from "./pages/policy/Policy";
 import PlainPage from "./pages/PlainPage";
 import BookingCancel from "./pages/bookingCancel/BookingCancel";
+import Login from "./pages/login/Login";
 
 const App = () => {
   const plainPages = [
@@ -28,6 +29,10 @@ const App = () => {
     {
       path: "/booking-cancel",
       component: <BookingCancel></BookingCancel>,
+    },
+    {
+      path: "/login",
+      component: <Login></Login>,
     },
   ];
   return (

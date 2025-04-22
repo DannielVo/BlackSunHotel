@@ -1,6 +1,7 @@
 import React from "react";
 import "./header.css";
 import { assets } from "../../assets/assets";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -28,9 +29,9 @@ const Header = () => {
         </div>
 
         <div className="nav-group right">
-          <a href="Login.html" className="nav-link">
+          <Link className="nav-link" to={"/login"}>
             Login
-          </a>
+          </Link>
           <a href="SignUp.html" className="nav-link">
             Sign up
           </a>
