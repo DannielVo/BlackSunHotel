@@ -90,46 +90,6 @@ export const SERVICES_LIST = [
 
 export const SERVICES_DETAILS = [
   {
-    icon: "bx bxs-bus",
-    title: "Transportation",
-    items: ["Airport hotel transfer"],
-  },
-  {
-    icon: "bx bx-handicap",
-    title: "Accessibility",
-    items: ["Ramp at entrance", "Lift"],
-  },
-  {
-    icon: "bx bxs-cat",
-    title: "Pets",
-    items: ["Pets not allowed"],
-  },
-  {
-    icon: "bx bx-help-circle",
-    title: "Reception services",
-    items: [
-      "24 hours reception",
-      "Luggage storage service",
-      "Early check in available",
-      "Late check out available",
-    ],
-  },
-  {
-    icon: "bx bx-shield-x",
-    title: "Safety security",
-    items: [
-      "24 hours security",
-      "CCTV/Cameras in common areas",
-      "Smoke alarms",
-      "Fire extinguisher",
-    ],
-  },
-  {
-    icon: "bx bx-wifi-2",
-    title: "Internet",
-    items: ["Free wi-fi"],
-  },
-  {
     icon: "bx bxs-bowl-hot",
     title: "Cuisine",
     items: ["Restaurant", "Pool bar", "Room service"],
@@ -158,6 +118,47 @@ export const SERVICES_DETAILS = [
     icon: "bx bx-child",
     title: "Family and children",
     items: ["Kids club"],
+  },
+  {
+    icon: "bx bxs-bus",
+    title: "Transportation",
+    items: ["Airport hotel transfer"],
+  },
+  {
+    icon: "bx bx-handicap",
+    title: "Accessibility",
+    items: ["Ramp at entrance", "Lift"],
+  },
+  {
+    icon: "bx bxs-cat",
+    title: "Pets",
+    items: ["Pets not allowed"],
+  },
+
+  {
+    icon: "bx bx-wifi-2",
+    title: "Internet",
+    items: ["Free wi-fi"],
+  },
+  {
+    icon: "bx bx-help-circle",
+    title: "Reception services",
+    items: [
+      "24 hours reception",
+      "Luggage storage service",
+      "Early check in available",
+      "Late check out available",
+    ],
+  },
+  {
+    icon: "bx bx-shield-x",
+    title: "Safety security",
+    items: [
+      "24 hours security",
+      "CCTV/Cameras in common areas",
+      "Smoke alarms",
+      "Fire extinguisher",
+    ],
   },
 ];
 
