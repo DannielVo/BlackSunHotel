@@ -32,9 +32,9 @@ const Header = () => {
           <Link className="nav-link" to={"/login"}>
             Login
           </Link>
-          <a href="SignUp.html" className="nav-link">
+          <Link className="nav-link" to={"/signup"}>
             Sign up
-          </a>
+          </Link>
         </div>
       </header>
     </>
