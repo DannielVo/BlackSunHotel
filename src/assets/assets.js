@@ -30,7 +30,7 @@ export const ROOM_LIST = [
   {
     id: 1,
     title: "Deluxe Room",
-    type: "RIVER VIEW | DOUBLE BED | 41 M²",
+    type: "RIVER VIEW | DOUBLE BED | 45 M²",
     description:
       "Step into luxury and enjoy the views of the river from your room. Perfect for families or business travellers who appreciate space and luxurious design, offering a spacious lounge with a comfortable sofa and a separate bedroom.",
     img: bed2,

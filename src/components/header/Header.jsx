@@ -11,9 +11,9 @@ const Header = () => {
           <a href="#hero" className="logo">
             <img src={assets.logo} />
           </a>
-          <a href="Login.html" className="nav-link">
+          <Link className="nav-link" to={"/login"}>
             Black Sun Member
-          </a>
+          </Link>
         </div>
 
         <div className="nav-group center">
