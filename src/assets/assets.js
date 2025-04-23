@@ -22,7 +22,7 @@ export const ROOM_LIST = [
   {
     id: 0,
     title: "Economy Room",
-    type: "CITY VIEW | DOUBLE BED OR TWO SINGLE BEDS | 41 M²",
+    type: "CITY VIEW | DOUBLE BED | 41 M²",
     description:
       "Comfortable and spacious room with views over the city featuring a double bed or 2 single beds, LCD TV, minibar, safe, and a range of quality amenities and excellent services.",
     img: bed1,
@@ -30,7 +30,7 @@ export const ROOM_LIST = [
   {
     id: 1,
     title: "Deluxe Room",
-    type: "RIVER VIEW | DOUBLE BED OR TWO SINGLE BEDS | 41 M²",
+    type: "RIVER VIEW | DOUBLE BED | 41 M²",
     description:
       "Step into luxury and enjoy the views of the river from your room. Perfect for families or business travellers who appreciate space and luxurious design, offering a spacious lounge with a comfortable sofa and a separate bedroom.",
     img: bed2,
