@@ -41,7 +41,7 @@ export const ROOM_LIST = [
   {
     id: 0,
     title: "Economy Room",
-    type: "CITY VIEW | DOUBLE BED | 41 M²",
+    type: "CITY VIEW | 1 DOUBLE BED | 41 M²",
     typeId: "economy",
     description:
       "Comfortable and spacious room with views over the city featuring a double bed or 2 single beds, LCD TV, minibar, safe, and a range of quality amenities and excellent services.",
@@ -101,7 +101,7 @@ export const ROOM_LIST = [
   {
     id: 2,
     title: "Premium Room",
-    type: "CITY VIEW | KING-SIZE BED | 55 M²",
+    type: "CITY VIEW | 1 KING-SIZE BED | 55 M²",
     typeId: "premium",
     description:
       "Our most lavish rooms offer a spacious king-size bed and large windows with city views. The separate lounge has a sofa and a dining table for up to 4 people. Enjoy magnificent city views from all of the spaces in this suite.",
