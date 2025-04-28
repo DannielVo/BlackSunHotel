@@ -16,6 +16,8 @@ import PlainPage from "./pages/PlainPage";
 import BookingCancel from "./pages/bookingCancel/BookingCancel";
 import Login from "./pages/login/Login";
 import SignUp from "./pages/signup/SignUp";
+import CheckAvailability from "./pages/checkAvailability/CheckAvailability";
+import SettingPage from "./pages/SettingPage";
 
 const App = () => {
   const plainPages = [
@@ -40,6 +42,14 @@ const App = () => {
       component: <SignUp></SignUp>,
     },
   ];
+
+  const settingPages = [
+    {
+      path: "/check-availability",
+      component: <CheckAvailability></CheckAvailability>,
+    },
+  ];
+
   return (
     <Routes>
       <Route
@@ -63,20 +73,14 @@ const App = () => {
           element={<PlainPage>{component}</PlainPage>}
         ></Route>
       ))}
+      {settingPages.map(({ path, component }) => (
+        <Route
+          key={path}
+          path={path}
+          element={<SettingPage>{component}</SettingPage>}
+        ></Route>
+      ))}
     </Routes>
-    // <div>
-    //   <Header></Header>
-    //   <main>
-    //     <Hero></Hero>
-    //     <Bookingbar></Bookingbar>
-    //     <History></History>
-    //     <Rooms></Rooms>
-    //     <Slider></Slider>
-    //     <HotelServices></HotelServices>
-    //     <HotelLocation></HotelLocation>
-    //   </main>
-    //   <Footer></Footer>
-    // </div>
   );
 };
 

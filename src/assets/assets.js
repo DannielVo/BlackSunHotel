@@ -2,46 +2,134 @@ import logo from "./Logo_2.png";
 import bed1 from "./Bed1.jpg";
 import bed2 from "./Bed2.jpg";
 import bed3 from "./Bed3.avif";
+import extraBed from "./Extra_Bed.jpg";
 import slide1 from "./Slide1.jpg";
 import slide2 from "./Slide2.jpg";
 import slide3 from "./Slide3.jpg";
 import slide4 from "./Slide4.avif";
 
+import qrMomo from "./Black Sun Hotel_QR_MOMO.png";
+import qrBanking from "./Black Sun Hotel_QR_Bank.png";
+import visaMasterCard from "./visa-mastercard.png";
+
 export const assets = {
   logo,
   bed1,
+  bed2,
+  bed3,
+  extraBed,
   slide1,
   slide2,
   slide3,
   slide4,
+  qrMomo,
+  qrBanking,
+  visaMasterCard,
 };
 
 export const SLIDER_IMG = [slide1, slide2, slide3, slide4];
+
+export const EXTRA_BED = {
+  title: "Extra Bed",
+  type: "For 1 additional guest",
+  description: "For 1 additional guest",
+  img: extraBed,
+  price: 500000,
+};
 
 export const ROOM_LIST = [
   {
     id: 0,
     title: "Economy Room",
     type: "CITY VIEW | DOUBLE BED | 41 M²",
+    typeId: "economy",
     description:
       "Comfortable and spacious room with views over the city featuring a double bed or 2 single beds, LCD TV, minibar, safe, and a range of quality amenities and excellent services.",
+    shortDescription: "Comfortable room with city view and modern amenities.",
     img: bed1,
+    price: 1800000,
+    features: [
+      { name: "maxOccupancy", detail: "2 Guests" },
+      { name: "bedConfig", detail: "1 Double Bed" },
+      { name: "roomSize", detail: "41 m²" },
+      { name: "bathrooms", detail: "1 Bathroom" },
+      { name: "roomView", detail: "City View" },
+      { name: "roomBalcony", detail: "Balcony" },
+    ],
+    amenities: [
+      "Internet Access",
+      "Shower",
+      "Air conditioner",
+      "Bath",
+      "Hairdryer",
+      "Large TV",
+      "Desk",
+      "Mini Fridge",
+    ],
   },
   {
     id: 1,
     title: "Deluxe Room",
-    type: "RIVER VIEW | DOUBLE BED | 45 M²",
+    type: "RIVER VIEW | 2 DOUBLE BEDS | 45 M²",
+    typeId: "deluxe",
     description:
       "Step into luxury and enjoy the views of the river from your room. Perfect for families or business travellers who appreciate space and luxurious design, offering a spacious lounge with a comfortable sofa and a separate bedroom.",
+    shortDescription: "Spacious room perfect for families.",
     img: bed2,
+    price: 2500000,
+    features: [
+      { name: "maxOccupancy", detail: "4 Guests" },
+      { name: "bedConfig", detail: "2 Double Bed" },
+      { name: "roomSize", detail: "45 m²" },
+      { name: "bathrooms", detail: "2 Bathroom" },
+      { name: "roomView", detail: "River View" },
+      { name: "roomBalcony", detail: "Balcony" },
+    ],
+    amenities: [
+      "Internet Access",
+      "Shower",
+      "Air conditioner",
+      "Bath",
+      "Bathrobes Provided",
+      "Hairdryer",
+      "Large TV",
+      "Desk",
+      "Mini Fridge",
+      "Mini Bar",
+    ],
   },
   {
     id: 2,
     title: "Premium Room",
     type: "CITY VIEW | KING-SIZE BED | 55 M²",
+    typeId: "premium",
     description:
       "Our most lavish rooms offer a spacious king-size bed and large windows with city views. The separate lounge has a sofa and a dining table for up to 4 people. Enjoy magnificent city views from all of the spaces in this suite.",
+    shortDescription: "Spacious room perfect for families.",
+    price: 3000000,
     img: bed3,
+    features: [
+      { name: "maxOccupancy", detail: "2 Guests" },
+      { name: "bedConfig", detail: "1 King-size Bed" },
+      { name: "roomSize", detail: "55 m²" },
+      { name: "bathrooms", detail: "2 Bathroom" },
+      { name: "roomView", detail: "City View" },
+      { name: "roomBalcony", detail: "Balcony" },
+    ],
+    amenities: [
+      "Internet Access",
+      "Shower",
+      "Air conditioner",
+      "Bath",
+      "Bathrobes Provided",
+      "Hairdryer",
+      "Large TV",
+      "Desk",
+      "Mini Fridge",
+      "Mini Bar",
+      "Ceiling Fans",
+      "Telephone",
+    ],
   },
 ];
 

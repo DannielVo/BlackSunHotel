@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import "./bookingbar.css";
+import { useNavigate } from "react-router-dom";
 
 const Bookingbar = () => {
   const bookingBarRef = useRef(null);
@@ -12,6 +13,8 @@ const Bookingbar = () => {
   let lastScrollTop = useRef(window.scrollY);
   let timeout = useRef(null);
   const checkinRef = useRef(null);
+
+  const navigate = useNavigate();
 
   const changeValue = (type, delta) => {
     switch (type) {
@@ -125,7 +128,12 @@ const Bookingbar = () => {
           </div>
         </div>
 
-        <button className="check-btn">CHECK AVAILABILITY</button>
+        <button
+          className="check-btn"
+          onClick={() => navigate("/check-availability")}
+        >
+          CHECK AVAILABILITY
+        </button>
       </section>
     </>
   );

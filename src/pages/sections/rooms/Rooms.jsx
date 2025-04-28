@@ -15,13 +15,7 @@ const Rooms = () => {
             {ROOM_LIST.length === 0
               ? ""
               : ROOM_LIST.map((item, index) => (
-                  <RoomItem
-                    key={`room ${index}`}
-                    title={item.title}
-                    type={item.type}
-                    description={item.description}
-                    img={item.img}
-                  ></RoomItem>
+                  <RoomItem key={`room ${index}`} roomItem={item}></RoomItem>
                 ))}
           </div>
         </div>
