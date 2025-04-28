@@ -19,6 +19,7 @@ import SignUp from "./pages/signup/SignUp";
 import CheckAvailability from "./pages/checkAvailability/CheckAvailability";
 import SettingPage from "./pages/SettingPage";
 import ConfirmAndPayment from "./pages/confirmAndPayment/ConfirmAndPayment";
+import BookingHistory from "./pages/bookingHistory/BookingHistory";
 
 const App = () => {
   const plainPages = [
@@ -52,6 +53,10 @@ const App = () => {
     {
       path: "/confirm",
       component: <ConfirmAndPayment></ConfirmAndPayment>,
+    },
+    {
+      path: "/booking-history",
+      component: <BookingHistory></BookingHistory>,
     },
   ];
 
