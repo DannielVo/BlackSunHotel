@@ -18,6 +18,7 @@ import Login from "./pages/login/Login";
 import SignUp from "./pages/signup/SignUp";
 import CheckAvailability from "./pages/checkAvailability/CheckAvailability";
 import SettingPage from "./pages/SettingPage";
+import ConfirmAndPayment from "./pages/confirmAndPayment/ConfirmAndPayment";
 
 const App = () => {
   const plainPages = [
@@ -47,6 +48,10 @@ const App = () => {
     {
       path: "/check-availability",
       component: <CheckAvailability></CheckAvailability>,
+    },
+    {
+      path: "/confirm",
+      component: <ConfirmAndPayment></ConfirmAndPayment>,
     },
   ];
 

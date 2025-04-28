@@ -66,6 +66,10 @@ const CheckAvailability = () => {
     }
   }, [totalRoomsSelected]);
 
+  useEffect(() => {
+    document.title = "Check Availability";
+  }, []);
+
   return (
     <>
       <CheckAvailabilityBar />
