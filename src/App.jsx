@@ -20,6 +20,7 @@ import CheckAvailability from "./pages/checkAvailability/CheckAvailability";
 import SettingPage from "./pages/SettingPage";
 import ConfirmAndPayment from "./pages/confirmAndPayment/ConfirmAndPayment";
 import BookingHistory from "./pages/bookingHistory/BookingHistory";
+import Profile from "./pages/profile/Profile";
 
 const App = () => {
   const plainPages = [
@@ -57,6 +58,10 @@ const App = () => {
     {
       path: "/booking-history",
       component: <BookingHistory></BookingHistory>,
+    },
+    {
+      path: "/profile",
+      component: <Profile></Profile>,
     },
   ];
 
