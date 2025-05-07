@@ -107,15 +107,6 @@ const BookingHistory = () => {
                           </div>
                         </div>
                       </div>
-
-                      {/* <!-- Review --> */}
-                      <div className="bhistory-room-review">
-                        <textarea
-                          placeholder="Write your review here..."
-                          className="bhistory-review-input"
-                        ></textarea>
-                        <button className="bhistory-send-review">Send</button>
-                      </div>
                     </div>
                   ))}
 
@@ -166,6 +157,15 @@ const BookingHistory = () => {
                   {totalPrice.toLocaleString("vi-VN")} VND
                 </div>
               </div>
+            </div>
+
+            {/* <!-- Review --> */}
+            <div className="bhistory-room-review">
+              <textarea
+                placeholder="Write your review here..."
+                className="bhistory-review-input"
+              ></textarea>
+              <button className="bhistory-send-review">Send</button>
             </div>
           </div>
         </div>
