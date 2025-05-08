@@ -21,6 +21,7 @@ import SettingPage from "./pages/SettingPage";
 import ConfirmAndPayment from "./pages/confirmAndPayment/ConfirmAndPayment";
 import BookingHistory from "./pages/bookingHistory/BookingHistory";
 import Profile from "./pages/profile/Profile";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 const App = () => {
   const plainPages = [
@@ -43,6 +44,10 @@ const App = () => {
     {
       path: "/signup",
       component: <SignUp></SignUp>,
+    },
+    {
+      path: "/dashboard",
+      component: <Dashboard></Dashboard>,
     },
   ];
 
