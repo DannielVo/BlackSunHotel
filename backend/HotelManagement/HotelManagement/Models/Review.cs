@@ -1,30 +1,25 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
-namespace HotelManagement.Models
+namespace HotelManagement.Models;
+
+public partial class Review
 {
-    public class Review
-    {
-        public int ReviewId { get; set; }
+    public int ReviewId { get; set; }
 
-        [Required]
-        public int RoomId { get; set; } // FK -> Rooms.RoomId
+    public int RoomId { get; set; }
 
-        [Required]
-        public int UserId { get; set; } // FK -> Users.UserId
+    public int UserId { get; set; }
 
-        [Required]
-        public int BookingId { get; set; } // FK -> Bookings.BookingId
+    public int BookingId { get; set; }
 
-        [Required(ErrorMessage = "Nội dung đánh giá không được để trống.")]
-        public string ReviewContent { get; set; }
+    public string? ReviewContent { get; set; }
 
-        [Required]
-        [Range(1, 5, ErrorMessage = "Đánh giá phải từ 1 đến 5 sao.")]
-        public int Rating { get; set; } // 1-5 sao
+    public int Rating { get; set; }
 
-        // Navigation properties
-        public Room Room { get; set; }
-        public User User { get; set; }
-        public Booking Booking { get; set; }
-    }
+    public virtual Booking Booking { get; set; } = null!;
+
+    public virtual Room Room { get; set; } = null!;
+
+    public virtual User User { get; set; } = null!;
 }

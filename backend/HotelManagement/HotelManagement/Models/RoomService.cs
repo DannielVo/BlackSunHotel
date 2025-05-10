@@ -1,21 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
-namespace HotelManagement.Models
+namespace HotelManagement.Models;
+
+public partial class RoomService
 {
-    // Models/RoomService.cs
-    public class RoomService
-    {
-        public int RoomServiceId { get; set; }
+    public int RoomServiceId { get; set; }
 
-        [Required]
-        public int RoomId { get; set; } // FK -> Rooms.RoomId
+    public int RoomId { get; set; }
 
-        [Required]
-        public DateTime DateTime { get; set; } // Thời gian yêu cầu dọn phòng
+    public DateTime ServiceDateTime { get; set; }
 
-        public bool IsCleaningDone { get; set; } = false; // Mặc định chưa hoàn thành
+    public bool IsCleaningDone { get; set; }
 
-        // Navigation property
-        public Room Room { get; set; }
-    }
+    public virtual Room Room { get; set; } = null!;
 }

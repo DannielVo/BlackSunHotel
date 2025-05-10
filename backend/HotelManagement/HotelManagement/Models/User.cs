@@ -1,14 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
-namespace HotelManagement.Models
+namespace HotelManagement.Models;
+
+public partial class User
 {
-    public class User
-    {
-        public int UserId { get; set; }
-        [Required] public string FullName { get; set; }
-        [EmailAddress] public string Email { get; set; }
-        [Required] public string Password { get; set; }
-        public bool IsStaff { get; set; }
-        public string RoleName { get; set; } = "customer";
-    }
+    public int UserId { get; set; }
+
+    public string Fullname { get; set; } = null!;
+
+    public string? Email { get; set; }
+
+    public string Phone { get; set; } = null!;
+
+    public bool IsStaff { get; set; }
+
+    public string? RoleName { get; set; }
+
+    public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+
+    public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
 }

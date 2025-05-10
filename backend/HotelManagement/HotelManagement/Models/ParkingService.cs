@@ -1,19 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
-namespace HotelManagement.Models
+namespace HotelManagement.Models;
+
+public partial class ParkingService
 {
-    // Models/ParkingService.cs
-    public class ParkingService
-    {
-        public int ParkingServiceId { get; set; }
+    public int ParkingServiceId { get; set; }
 
-        [Required]
-        public int BookingId { get; set; } // FK -> Bookings.BookingId
+    public int BookingId { get; set; }
 
-        [Required(ErrorMessage = "Biển số xe không được để trống.")]
-        public string ParkingPlateNo { get; set; } // Ví dụ: "51G-12345"
+    public string ParkingPlateNo { get; set; } = null!;
 
-        // Navigation property
-        public Booking Booking { get; set; }
-    }
+    public virtual Booking Booking { get; set; } = null!;
 }
