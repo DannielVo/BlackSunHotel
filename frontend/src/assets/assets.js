@@ -355,3 +355,506 @@ export const BOOKING_CANCEL = [
     ],
   },
 ];
+
+export const DASHBOARD_TABS = [
+  {
+    key: "users",
+    icon: "bx-user",
+    label: "Users",
+  },
+  {
+    key: "rooms",
+    icon: "bx-bed",
+    label: "Rooms",
+  },
+  {
+    key: "bookings",
+    icon: "bx-calendar",
+    label: "Bookings",
+  },
+  {
+    key: "reviews",
+    icon: "bx-star",
+    label: "Reviews",
+    settingBtnTitle: "",
+  },
+  {
+    key: "roomService",
+    icon: "bx-restaurant",
+    label: "Room Service",
+    settingBtnTitle: "Add Service",
+  },
+  {
+    key: "parkingService",
+    icon: "bx-car",
+    label: "Parking Service",
+    settingBtnTitle: "Add Parking",
+  },
+];
+
+export const USERS_TAB_KEY = "users";
+export const ROOMS_TAB_KEY = "rooms";
+export const BOOKINGS_TAB_KEY = "bookings";
+export const REVIEWS_TAB_KEY = "reviews";
+export const RSERVICES_TAB_KEY = "roomService";
+export const PARKING_TAB_KEY = "parkingService";
+
+export const DASHBOARD_USER_FIELD_MODAL = {
+  id: "addUserForm",
+  title: "Add User",
+  settingBtnTitle: "Edit User",
+  fieldItems: [
+    {
+      id: "addUserId",
+      name: "id",
+      label: "User ID",
+      type: "text",
+      required: true,
+      readOnly: true,
+      value: "",
+    },
+    {
+      id: "addFullName",
+      name: "name",
+      label: "Full Name",
+      type: "text",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "addEmail",
+      name: "email",
+      label: "Email",
+      type: "email",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "addPhone",
+      name: "phone",
+      label: "Phone",
+      type: "tel",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "addRole",
+      name: "role",
+      label: "Role",
+      type: "select",
+      required: true,
+      readOnly: false,
+      options: [
+        { value: "Admin", label: "Admin" },
+        { value: "Staff", label: "Staff" },
+        { value: "Customer", label: "Customer" },
+      ],
+      value: "Customer",
+    },
+  ],
+};
+
+export const DASHBOARD_ROOM_FIELD_MODAL = {
+  id: "addRoomForm",
+  title: "Add Room",
+  settingBtnTitle: "Edit Room",
+  fieldItems: [
+    {
+      id: "roomName",
+      name: "name",
+      label: "Room Name",
+      type: "text",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "roomType",
+      name: "type",
+      label: "Room Type",
+      type: "text",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "roomFeatures",
+      name: "features",
+      label: "Room Features",
+      type: "text",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "roomPrice",
+      name: "price",
+      label: "Room Price",
+      type: "number",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "roomStatus",
+      name: "status",
+      label: "Room Status",
+      type: "select",
+      required: true,
+      readOnly: false,
+      options: [
+        { value: "Available", label: "Available" },
+        { value: "Booked", label: "Booked" },
+        { value: "Pending", label: "Pending" },
+      ],
+      value: "Available",
+    },
+  ],
+};
+
+export const DASHBOARD_BOOKING_FIELD_MODAL = {
+  id: "addBookingForm",
+  title: "Add Booking",
+  settingBtnTitle: "Edit Booking",
+  fieldItems: [
+    {
+      id: "bookingId",
+      name: "id",
+      label: "Booking ID",
+      type: "text",
+      required: true,
+      readOnly: true,
+      value: "",
+    },
+    {
+      id: "bookingRoom",
+      name: "room",
+      label: "Rooms",
+      type: "text",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "guestName",
+      name: "guest",
+      label: "Guest Name",
+      type: "text",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "guestPhone",
+      name: "phone",
+      label: "Phone",
+      type: "tel",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "checkIn",
+      name: "checkIn",
+      label: "Check In",
+      type: "date",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "checkOut",
+      name: "checkOut",
+      label: "Check Out",
+      type: "date",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "totalPrice",
+      name: "price",
+      label: "Total Price",
+      type: "number",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "paymentStatus",
+      name: "status",
+      label: "Payment Status",
+      type: "select",
+      required: true,
+      readOnly: false,
+      options: [
+        { value: "Paid", label: "Paid" },
+        { value: "Pending", label: "Pending" },
+        { value: "Cancelled", label: "Cancelled" },
+      ],
+      value: "Pending",
+    },
+  ],
+};
+
+export const DASHBOARD_ROOM_SERVICE_FIELD_MODAL = {
+  id: "addRoomServiceForm",
+  title: "Add Room Service",
+  settingBtnTitle: "Edit Room Service",
+  fieldItems: [
+    {
+      id: "roomServiceId",
+      name: "id", //liên kết với mockData
+      label: "ID",
+      type: "text",
+      required: true,
+      readOnly: true,
+      value: "",
+    },
+    {
+      id: "roomNumber",
+      name: "roomNumber", //liên kết với mockData
+      label: "Room Number",
+      type: "text",
+      required: true,
+      readOnly: true,
+      value: "",
+    },
+    {
+      id: "serviceDate",
+      name: "date", //liên kết với mockData
+      label: "Date",
+      type: "date",
+      required: true,
+      readOnly: true,
+      value: "",
+    },
+    {
+      id: "serviceStatus",
+      name: "status", //liên kết với mockData
+      label: "Status",
+      type: "select",
+      required: true,
+      readOnly: true,
+      options: [
+        { value: "Pending", label: "Pending" },
+        { value: "Progress", label: "In Progress" },
+        { value: "Completed", label: "Completed" },
+      ],
+      value: "Pending",
+    },
+  ],
+};
+
+export const DASHBOARD_PARKING_SERVICE_FIELD_MODAL = {
+  id: "addParkingForm",
+  title: "Add Parking Service",
+  settingBtnTitle: "Edit Parking Service",
+  fieldItems: [
+    {
+      id: "parkingId",
+      name: "id", //liên kết với mockData
+      label: "ID",
+      type: "text",
+      required: true,
+      readOnly: true,
+      value: "",
+    },
+    {
+      id: "bookingIdParking",
+      name: "bookingId", //liên kết với mockData
+      label: "Booking ID",
+      type: "text",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+    {
+      id: "plateNumber",
+      name: "parkingPlateNo", //liên kết với mockData
+      label: "Parking Plate Number",
+      type: "text",
+      required: true,
+      readOnly: false,
+      value: "",
+    },
+  ],
+};
+
+export const MOCK_USERS = {
+  title: "Users",
+  mockData: [
+    {
+      id: 1,
+      name: "Jone Pit",
+      email: "jone123@gmail.com",
+      phone: "+84 123 456 789",
+      role: "Customer",
+    },
+    {
+      id: 2,
+      name: "Jenny Dillow",
+      email: "jennydillow@gmail.com",
+      phone: "+84 987 654 321",
+      role: "Staff",
+    },
+    {
+      id: 3,
+      name: "Alice Brown",
+      email: "aliceB@gmail.com",
+      phone: "+84 123 456 788",
+      role: "Admin",
+    },
+  ],
+};
+
+export const MOCK_ROOMS = {
+  title: "Rooms",
+  mockData: [
+    {
+      name: "Room 101",
+      type: "Economy",
+      features: "King bed, Sea view, Balcony",
+      price: "150",
+      status: "Available",
+    },
+    {
+      name: "Room 102",
+      type: "Deluxe",
+      features: "Queen bed, City view",
+      price: "100",
+      status: "Booked",
+    },
+    {
+      name: "Room 103",
+      type: "Premium",
+      features: "King bed, Living room, Jacuzzi",
+      price: "250",
+      status: "Pending",
+    },
+    {
+      name: "Room 204",
+      type: "Premium",
+      features: "King bed, Living room, Jacuzzi",
+      price: "250",
+      status: "Pending",
+    },
+  ],
+};
+
+export const MOCK_BOOKINGS = {
+  title: "Bookings",
+  mockData: [
+    {
+      id: 1,
+      room: "101",
+      guest: "Alice",
+      phone: "+84 123 456 789",
+      checkIn: "2023-01-01",
+      checkOut: "2023-01-02",
+      price: "100",
+      status: "Cancelled",
+    },
+    {
+      id: 2,
+      room: "102, 103",
+      guest: "Sarah Johnson",
+      phone: "+84 987 654 321",
+      checkIn: "2023-06-08",
+      checkOut: "2023-06-22",
+      price: "500",
+      status: "Pending",
+    },
+    {
+      id: 3,
+      room: "204",
+      guest: "Michael Brown",
+      phone: "+84 555 123 456",
+      checkIn: "2023-06-20",
+      checkOut: "2023-06-25",
+      price: "1100",
+      status: "Paid",
+    },
+  ],
+};
+
+export const MOCK_REVIEWS = {
+  title: "Reviews",
+  mockData: [
+    {
+      id: 1,
+      bookingId: 1,
+      rooms: "101",
+      content: "Great experience, would stay again!",
+      rating: 4,
+    },
+    {
+      id: 2,
+      bookingId: 2,
+      rooms: "102, 103",
+      content: "Clean room but noisy at night",
+      rating: 3,
+    },
+    {
+      id: 3,
+      bookingId: 3,
+      rooms: "204",
+      content: "Perfect for our family vacation, excellent service!",
+      rating: 5,
+    },
+  ],
+};
+
+export const MOCK_ROOM_SERVICES = {
+  title: "Room Service",
+  mockData: [
+    {
+      id: 1,
+      roomNumber: "101",
+      date: "2025-01-02",
+      status: "Completed",
+    },
+    {
+      id: 2,
+      roomNumber: "102",
+      date: "2025-05-15",
+      status: "Pending",
+    },
+    {
+      id: 3,
+      roomNumber: "103",
+      date: "2025-05-15",
+      status: "Progress",
+    },
+    {
+      id: 4,
+      roomNumber: "103",
+      date: "2025-04-2",
+      status: "Completed",
+    },
+  ],
+};
+
+export const MOCK_PARKING_SERVICES = {
+  title: "Parking Service",
+  mockData: [
+    {
+      id: 1,
+      bookingId: 1,
+      parkingPlateNo: "67A-69220",
+    },
+    {
+      id: 2,
+      bookingId: 2,
+      parkingPlateNo: "83B-01873",
+    },
+    {
+      id: 3,
+      bookingId: 3,
+      parkingPlateNo: "86A-00358",
+    },
+  ],
+};
