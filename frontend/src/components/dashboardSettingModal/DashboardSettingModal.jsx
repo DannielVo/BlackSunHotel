@@ -55,7 +55,7 @@ const DashboardSettingModal = ({
                         name={field.name}
                         defaultValue={field.value}
                         required={field.required}
-                        disabled={field.readOnly}
+                        disabled={title !== "" ? field.readOnly : false}
                       >
                         {field.options.map((option, idx) => (
                           <option value={option.value} key={`option ${idx}`}>
@@ -69,7 +69,7 @@ const DashboardSettingModal = ({
                         id={field.id}
                         required={field.required}
                         name={field.name}
-                        disabled={field.readOnly}
+                        disabled={title !== "" ? field.readOnly : false}
                         defaultValue={field.value}
                       />
                     )}

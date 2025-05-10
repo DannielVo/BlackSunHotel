@@ -669,7 +669,7 @@ export const DASHBOARD_PARKING_SERVICE_FIELD_MODAL = {
       label: "Booking ID",
       type: "text",
       required: true,
-      readOnly: true,
+      readOnly: false,
       value: "",
     },
     {
@@ -678,7 +678,7 @@ export const DASHBOARD_PARKING_SERVICE_FIELD_MODAL = {
       label: "Parking Plate Number",
       type: "text",
       required: true,
-      readOnly: true,
+      readOnly: false,
       value: "",
     },
   ],
@@ -730,6 +730,13 @@ export const MOCK_ROOMS = {
     },
     {
       name: "Room 103",
+      type: "Premium",
+      features: "King bed, Living room, Jacuzzi",
+      price: "250",
+      status: "Pending",
+    },
+    {
+      name: "Room 204",
       type: "Premium",
       features: "King bed, Living room, Jacuzzi",
       price: "250",
@@ -807,20 +814,26 @@ export const MOCK_ROOM_SERVICES = {
     {
       id: 1,
       roomNumber: "101",
-      date: "2023-01-02",
+      date: "2025-01-02",
       status: "Completed",
     },
     {
       id: 2,
       roomNumber: "102",
-      date: "2023-05-15",
+      date: "2025-05-15",
       status: "Pending",
     },
     {
       id: 3,
       roomNumber: "103",
-      date: "2023-05-15",
+      date: "2025-05-15",
       status: "Progress",
+    },
+    {
+      id: 4,
+      roomNumber: "103",
+      date: "2025-04-2",
+      status: "Completed",
     },
   ],
 };
@@ -831,17 +844,17 @@ export const MOCK_PARKING_SERVICES = {
     {
       id: 1,
       bookingId: 1,
-      parkingPlateNo: "51A-12345",
+      parkingPlateNo: "67A-69220",
     },
     {
       id: 2,
       bookingId: 2,
-      parkingPlateNo: "30B-67890",
+      parkingPlateNo: "83B-01873",
     },
     {
-      id: 1,
+      id: 3,
       bookingId: 3,
-      parkingPlateNo: "29A-54321",
+      parkingPlateNo: "86A-00358",
     },
   ],
 };
