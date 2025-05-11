@@ -1,17 +1,18 @@
 ﻿using HotelManagement.Models;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Cryptography;
+using Microsoft.EntityFrameworkCore;
 using System.Text;
 
-namespace NTN.Controllers
+namespace HotelManagement.Controllers
 {
+    [Route("[controller]")]
     [ApiController]
-    [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
-        private readonly CustomerContext _context;
+        private readonly DbAccount _context;
 
-        public AccountController(CustomerContext context)
+        public AccountController(DbAccount context)
         {
             _context = context;
         }
@@ -23,22 +24,29 @@ namespace NTN.Controllers
             // Kiểm tra email tồn tại
             if (_context.Users.Any(u => u.Email == request.Email))
             {
-                return BadRequest(new { Message = "Email đã tồn tại" });
+                return BadRequest("Email đã tồn tại");
             }
 
-            // Tạo user mới
             var user = new User
             {
                 Fullname = request.Fullname,
                 Email = request.Email,
                 Phone = request.Phone,
-                PasswordHash = HashPassword(request.Password)
+                Password = request.Password // Lưu mật khẩu dạng plain text (KHÔNG AN TOÀN)
             };
 
             _context.Users.Add(user);
-            _context.SaveChanges();
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                var innerException = ex.InnerException;
+                Console.WriteLine(innerException.Message); // Log hoặc breakpoint để xem lỗi
+            }
 
-            return Ok(new { Message = "Đăng ký thành công" });
+            return Ok("Đăng ký thành công");
         }
 
         // Đăng nhập
@@ -47,41 +55,25 @@ namespace NTN.Controllers
         {
             var user = _context.Users.FirstOrDefault(u => u.Email == request.Email);
 
-            if (user == null || !VerifyPassword(request.Password, user.PasswordHash))
+            if (user == null || user.Password != request.Password)
             {
-                return Unauthorized(new { Message = "Email hoặc mật khẩu không đúng" });
+                return Unauthorized("Thông tin đăng nhập không chính xác");
             }
 
-            // Tạo session
+            // Lưu session
             HttpContext.Session.SetInt32("UserId", user.UserId);
-            return Ok(new { Message = "Đăng nhập thành công" });
+            return Ok("Đăng nhập thành công");
         }
 
         // Đăng xuất
         [HttpPost("logout")]
         public IActionResult Logout()
         {
-            HttpContext.Session.Clear();
-            return Ok(new { Message = "Đã đăng xuất" });
-        }
-
-        // Hàm băm mật khẩu (SHA256)
-        private string HashPassword(string password)
-        {
-            using var sha256 = SHA256.Create();
-            var bytes = Encoding.UTF8.GetBytes(password);
-            var hash = sha256.ComputeHash(bytes);
-            return Convert.ToBase64String(hash);
-        }
-
-        // Xác minh mật khẩu
-        private bool VerifyPassword(string password, string storedHash)
-        {
-            return HashPassword(password) == storedHash;
+            HttpContext.Session.Remove("UserId");
+            return Ok("Đã đăng xuất");
         }
     }
 
-    // DTO cho đăng ký
     public class UserRegistrationRequest
     {
         public string Fullname { get; set; }
@@ -90,7 +82,6 @@ namespace NTN.Controllers
         public string Password { get; set; }
     }
 
-    // DTO cho đăng nhập
     public class LoginRequest
     {
         public string Email { get; set; }

@@ -1,24 +1,24 @@
 [
   {
-    "ContainingType": "NTN.Controllers.AccountController",
+    "ContainingType": "HotelManagement.Controllers.AccountController",
     "Method": "Login",
-    "RelativePath": "api/Account/login",
+    "RelativePath": "Account/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "request",
-        "Type": "NTN.Controllers.LoginRequest",
+        "Type": "HotelManagement.Controllers.LoginRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "NTN.Controllers.AccountController",
+    "ContainingType": "HotelManagement.Controllers.AccountController",
     "Method": "Logout",
-    "RelativePath": "api/Account/logout",
+    "RelativePath": "Account/logout",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -26,16 +26,16 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "NTN.Controllers.AccountController",
+    "ContainingType": "HotelManagement.Controllers.AccountController",
     "Method": "Register",
-    "RelativePath": "api/Account/register",
+    "RelativePath": "Account/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "request",
-        "Type": "NTN.Controllers.UserRegistrationRequest",
+        "Type": "HotelManagement.Controllers.UserRegistrationRequest",
         "IsRequired": true
       }
     ],
