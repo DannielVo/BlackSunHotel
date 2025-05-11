@@ -1,12 +1,48 @@
-# React + Vite
+# 🌑 BlackSunHotel – A React Application for Hotel Booking
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**BlackSunHotel** is a modern frontend application built with **React.js**, simulating a hotel booking system. It provides a smooth user experience with a friendly interface, supporting room search, filtering, and booking management.
 
-Currently, two official plugins are available:
+## ✨ Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* 🏨 **Room & Service Listings** – Display various room types and hotel services by category
+* 🔍 **Advanced Search** – Search for available rooms by date, room type, and number of guests
+* 🛒 **Staff Management Dashboard** – Add, delete, and manage bookings, users, and room quantities
+* 💳 **Checkout Interface** – Simulates the room booking and payment process
+* ⚡ **High Performance** – Follows React best practices for optimal speed and responsiveness
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Frontend:** React.js
+* **State Management:** Context API
+* **Routing:** React Router
+
+## 📁 Project Structure
+
+```bash
+frontend/
+├── public/             # Static files and root HTML
+├── src/
+│   ├── assets/         # Images and static assets
+│   ├── components/     # Reusable components
+│   ├── pages/          # Main pages (Home, Room, Booking, etc.)
+│   ├── context/        # Global state using Context API
+│   ├── App.js          # Root component
+│   └── index.js        # Entry point of the app
+├── package.json        # Project information and dependencies
+└── README.md           # Project documentation
+```
+
+## 🚀 Getting Started
+
+1. **Install dependencies:**
+
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+2. **Run the application:**
+
+   ```bash
+   npm run dev
+   ```
