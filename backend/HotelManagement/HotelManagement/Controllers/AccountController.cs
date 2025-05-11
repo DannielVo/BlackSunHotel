@@ -5,7 +5,9 @@ using System.Text;
 
 namespace NTN.Controllers
 {
-    public class AccountController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AccountController : ControllerBase
     {
         private readonly CustomerContext _context;
 
@@ -14,51 +16,84 @@ namespace NTN.Controllers
             _context = context;
         }
 
-        // GET: /Account/Register
-        public IActionResult Register() => View();
-
-        [HttpPost]
-        public IActionResult Register(User user, string password)
+        // Đăng ký
+        [HttpPost("register")]
+        public IActionResult Register([FromBody] UserRegistrationRequest request)
         {
-            if (ModelState.IsValid)
+            // Kiểm tra email tồn tại
+            if (_context.Users.Any(u => u.Email == request.Email))
             {
-                user.PasswordHash = SimpleHash(password); // Basic hashing
-                _context.Users.Add(user);
-                _context.SaveChanges();
-                return RedirectToAction("Login");
+                return BadRequest(new { Message = "Email đã tồn tại" });
             }
-            return View(user);
+
+            // Tạo user mới
+            var user = new User
+            {
+                Fullname = request.Fullname,
+                Email = request.Email,
+                Phone = request.Phone,
+                PasswordHash = HashPassword(request.Password)
+            };
+
+            _context.Users.Add(user);
+            _context.SaveChanges();
+
+            return Ok(new { Message = "Đăng ký thành công" });
         }
 
-        // GET: /Account/Login
-        public IActionResult Login() => View();
-
-        [HttpPost]
-        public IActionResult Login(string email, string password)
+        // Đăng nhập
+        [HttpPost("login")]
+        public IActionResult Login([FromBody] LoginRequest request)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Email == email);
-            if (user != null && SimpleHash(password) == user.PasswordHash)
+            var user = _context.Users.FirstOrDefault(u => u.Email == request.Email);
+
+            if (user == null || !VerifyPassword(request.Password, user.PasswordHash))
             {
-                HttpContext.Session.SetInt32("UserId", user.UserId);
-                return RedirectToAction("Index", "Home");
+                return Unauthorized(new { Message = "Email hoặc mật khẩu không đúng" });
             }
-            ModelState.AddModelError("", "Invalid credentials");
-            return View();
+
+            // Tạo session
+            HttpContext.Session.SetInt32("UserId", user.UserId);
+            return Ok(new { Message = "Đăng nhập thành công" });
         }
 
-        private string SimpleHash(string input)
+        // Đăng xuất
+        [HttpPost("logout")]
+        public IActionResult Logout()
         {
-            // WARNING: This is a DEMO-ONLY implementation
+            HttpContext.Session.Clear();
+            return Ok(new { Message = "Đã đăng xuất" });
+        }
+
+        // Hàm băm mật khẩu (SHA256)
+        private string HashPassword(string password)
+        {
             using var sha256 = SHA256.Create();
-            var bytes = Encoding.UTF8.GetBytes(input);
+            var bytes = Encoding.UTF8.GetBytes(password);
             var hash = sha256.ComputeHash(bytes);
             return Convert.ToBase64String(hash);
         }
 
-        public IActionResult Logout()
+        // Xác minh mật khẩu
+        private bool VerifyPassword(string password, string storedHash)
         {
-            HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Home");
+            return HashPassword(password) == storedHash;
         }
+    }
+
+    // DTO cho đăng ký
+    public class UserRegistrationRequest
+    {
+        public string Fullname { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string Password { get; set; }
+    }
+
+    // DTO cho đăng nhập
+    public class LoginRequest
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }
