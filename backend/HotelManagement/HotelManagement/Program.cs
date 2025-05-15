@@ -1,53 +1,33 @@
-﻿using Microsoft.EntityFrameworkCore;
+// Program.cs
 using HotelManagement.Models;
-using System.Text.Json.Serialization;
-using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Thêm dịch vụ Swagger
+// Add services to the container.
+builder.Services.AddControllers();
+// Configure the DbContext with SQL Server (adjust the connection string as needed).
+IConfigurationRoot cf = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .Build();
+builder.Services.AddDbContext<HotelSQL>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("cnn")));
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new() { Title = "Hotel Management API", Version = "v1" });
-});
-
-// Đăng ký DbContext
-builder.Services.AddDbContext<DbAccount>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("cnn"))
-);
-
-// Hỗ trợ DateOnly trong JSON
-builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.Converters.Add(new DateOnlyJsonConverter());
-    });
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Kích hoạt Swagger UI
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hotel Management API v1"));
-}
-
+// Configure the HTTP request pipeline.
+// Redirect HTTP to HTTPS (if needed).
 app.UseHttpsRedirection();
+
+// Enable Swagger middleware for API documentation and testing.
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.UseAuthorization();
+
 app.MapControllers();
+
 app.Run();
-
-// Converter cho DateOnly
-public class DateOnlyJsonConverter : JsonConverter<DateOnly>
-{
-    public override DateOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-    {
-        return DateOnly.Parse(reader.GetString());
-    }
-
-    public override void Write(Utf8JsonWriter writer, DateOnly value, JsonSerializerOptions options)
-    {
-        writer.WriteStringValue(value.ToString("yyyy-MM-dd"));
-    }
-}

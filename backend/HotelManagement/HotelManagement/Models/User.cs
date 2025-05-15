@@ -37,5 +37,6 @@ public partial class User
     [InverseProperty("User")]
     public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
     [Column("password")]
+    [StringLength(255)]
     public string Password { get; set; } = null!;
 }

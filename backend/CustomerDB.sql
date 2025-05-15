@@ -1,3 +1,6 @@
+use master
+go
+
 IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Customer')
 BEGIN
     DROP DATABASE [Customer];
@@ -16,6 +19,7 @@ CREATE TABLE Users (
     fullname NVARCHAR(255) NOT NULL,
     email NVARCHAR(255) NULL,
     phone NVARCHAR(20) NOT NULL,
+	Password NVARCHAR(255) NOT NULL,
     isStaff BIT NOT NULL DEFAULT 0,
     roleName NVARCHAR(50) NULL,
     CONSTRAINT PK_Users PRIMARY KEY CLUSTERED (userId)

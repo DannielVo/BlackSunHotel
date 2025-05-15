@@ -173,3 +173,5 @@ E:\study\studying\Software_Engineering\FINAL_REPORT\BlackSunHotel\backend\HotelM
 E:\study\studying\Software_Engineering\FINAL_REPORT\BlackSunHotel\backend\HotelManagement\HotelManagement\obj\Debug\net9.0\HotelManagement.pdb
 E:\study\studying\Software_Engineering\FINAL_REPORT\BlackSunHotel\backend\HotelManagement\HotelManagement\obj\Debug\net9.0\HotelManagement.genruntimeconfig.cache
 E:\study\studying\Software_Engineering\FINAL_REPORT\BlackSunHotel\backend\HotelManagement\HotelManagement\obj\Debug\net9.0\ref\HotelManagement.dll
+E:\study\studying\Software_Engineering\FINAL_REPORT\BlackSunHotel\backend\HotelManagement\HotelManagement\bin\Debug\net9.0\BCrypt.Net-Next.dll
+E:\study\studying\Software_Engineering\FINAL_REPORT\BlackSunHotel\backend\HotelManagement\HotelManagement\bin\Debug\net9.0\BCrypt.Net-Core.dll

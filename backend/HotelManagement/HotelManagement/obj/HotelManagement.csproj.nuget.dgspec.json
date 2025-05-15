@@ -50,9 +50,25 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "BCrypt.Net-Core": {
+              "target": "Package",
+              "version": "[1.6.0, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Cookies": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.4, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.3.0, )"
             },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
@@ -83,10 +99,6 @@
               "version": "[13.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[8.1.1, )"
-            },
-            "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
               "version": "[8.1.1, )"
             }

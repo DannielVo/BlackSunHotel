@@ -1,90 +1,107 @@
-﻿using HotelManagement.Models;
-using Microsoft.AspNetCore.Identity.Data;
+﻿// AccountController.cs
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using HotelManagement.Models;
+using HotelManagement.DTOs;
 
 namespace HotelManagement.Controllers
 {
-    [Route("[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class AccountController : ControllerBase
     {
-        private readonly DbAccount _context;
+        private readonly HotelSQL _context;
 
-        public AccountController(DbAccount context)
+        public AccountController(HotelSQL context)
         {
             _context = context;
         }
 
-        // Đăng ký
+        // POST: api/Account/register
         [HttpPost("register")]
-        public IActionResult Register([FromBody] UserRegistrationRequest request)
+        public async Task<IActionResult> Register([FromBody] RegisterUserDTO newUser)
         {
-            // Kiểm tra email tồn tại
-            if (_context.Users.Any(u => u.Email == request.Email))
+            if (await _context.Users.AnyAsync(u => u.Email == newUser.Email))
             {
-                return BadRequest("Email đã tồn tại");
+                return BadRequest("Email already in use.");
             }
 
             var user = new User
             {
-                Fullname = request.Fullname,
-                Email = request.Email,
-                Phone = request.Phone,
-                Password = request.Password // Lưu mật khẩu dạng plain text (KHÔNG AN TOÀN)
+                Fullname = newUser.Fullname,
+                Email = newUser.Email,
+                Phone = newUser.Phone,
+                Password = newUser.Password
             };
 
             _context.Users.Add(user);
-            try
-            {
-                _context.SaveChanges();
-            }
-            catch (DbUpdateException ex)
-            {
-                var innerException = ex.InnerException;
-                Console.WriteLine(innerException.Message); // Log hoặc breakpoint để xem lỗi
-            }
+            await _context.SaveChangesAsync();
 
-            return Ok("Đăng ký thành công");
+            return Ok(new { user.UserId, user.Fullname, user.Email });
         }
 
-        // Đăng nhập
+        // POST: api/Account/login
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginRequest request)
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Email == request.Email);
-
-            if (user == null || user.Password != request.Password)
+            // Validate the user credentials by matching email and password
+            var user = await _context.Users
+                .SingleOrDefaultAsync(u => u.Email == request.Email && u.Password == request.Password);
+            if (user == null)
             {
-                return Unauthorized("Thông tin đăng nhập không chính xác");
+                return BadRequest("Invalid email or password.");
             }
 
-            // Lưu session
-            HttpContext.Session.SetInt32("UserId", user.UserId);
-            return Ok("Đăng nhập thành công");
+            // Return user details (excluding password)
+            return Ok(new
+            {
+                user.UserId,
+                user.Fullname,
+                user.Email,
+                user.Phone,
+                user.IsStaff,
+                user.RoleName
+            });
         }
 
-        // Đăng xuất
-        [HttpPost("logout")]
-        public IActionResult Logout()
+        // PUT: api/Account/change-password
+        [HttpPut("change-password")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequest request)
         {
-            HttpContext.Session.Remove("UserId");
-            return Ok("Đã đăng xuất");
+            // Find user by ID
+            var user = await _context.Users.FindAsync(request.UserId);
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            // Check if the old password matches
+            if (user.Password != request.OldPassword)
+            {
+                return BadRequest("Old password is incorrect.");
+            }
+
+            // Update to the new password
+            user.Password = request.NewPassword;
+            await _context.SaveChangesAsync();
+
+            return Ok("Password updated successfully.");
         }
     }
 
-    public class UserRegistrationRequest
-    {
-        public string Fullname { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Password { get; set; }
-    }
-
+    // Request model for login (email and password)
     public class LoginRequest
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public string Email { get; set; } = null!;
+        public string Password { get; set; } = null!;
+    }
+
+    // Request model for changing password
+    public class ChangePasswordRequest
+    {
+        public int UserId { get; set; }
+        public string OldPassword { get; set; } = null!;
+        public string NewPassword { get; set; } = null!;
     }
 }
