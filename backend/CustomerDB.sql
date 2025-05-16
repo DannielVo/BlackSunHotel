@@ -28,6 +28,7 @@ CREATE TABLE Users (
 -- Table: RoomType
 CREATE TABLE RoomType (
     roomTypeId INT IDENTITY(1,1) NOT NULL,
+	roomTypeName NVARCHAR(255) NOT NULL,
     roomDesc NVARCHAR(255) NULL,
     roomFeatures NVARCHAR(MAX) NULL,
     roomAmenities NVARCHAR(MAX) NULL,
@@ -76,13 +77,11 @@ CREATE TABLE BookingDetails (
 -- Table: Reviews
 CREATE TABLE Reviews (
     reviewId INT IDENTITY(1,1) NOT NULL,
-    roomId INT NOT NULL,
     userId INT NOT NULL,
     bookingId INT NOT NULL,
-    reviewContent NVARCHAR(MAX) NULL,
+    reviewContent NVARCHAR(MAX) NULL,	
     rating INT NOT NULL,
     CONSTRAINT PK_Reviews PRIMARY KEY CLUSTERED (reviewId),
-    CONSTRAINT FK_Reviews_Rooms FOREIGN KEY (roomId) REFERENCES Rooms(roomId),
     CONSTRAINT FK_Reviews_Users FOREIGN KEY (userId) REFERENCES Users(userId),
     CONSTRAINT FK_Reviews_Bookings FOREIGN KEY (bookingId) REFERENCES Bookings(bookingId)
 );

@@ -1,85 +1,102 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using HotelManagement.DTOs;
+using HotelManagement.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using HotelManagement.Models;
 
-namespace HotelManagement.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class RoomController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class RoomsController : ControllerBase
+    private readonly HotelSQL _context;
+
+    public RoomController(HotelSQL context)
     {
-        private readonly HotelSQL _context;
+        _context = context;
+    }
 
-        public RoomsController(HotelSQL context)
-        {
-            _context = context;
-        }
-
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Room>>> GetRooms()
-        {
-            return await _context.Rooms.ToListAsync();
-        }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Room>> GetRoom(int id)
-        {
-            var room = await _context.Rooms.FindAsync(id);
-            if (room == null)
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<RoomDTO>>> GetRooms()
+    {
+        return await _context.Rooms
+            .Select(r => new RoomDTO
             {
-                return NotFound();
-            }
-            return room;
-        }
+                RoomId = r.RoomId,
+                RoomTitle = r.RoomTitle,
+                RoomTypeId = r.RoomTypeId,
+                RoomDescription = r.RoomDescription,
+                RoomImage = r.RoomImage,
+                RoomStatus = r.RoomStatus
+            })
+            .ToListAsync();
+    }
 
-        [HttpPost]
-        public async Task<ActionResult<Room>> PostRoom(Room room)
-        {
-            _context.Rooms.Add(room);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetRoom), new { id = room.RoomId }, room);
-        }
+    [HttpGet("{id}")]
+    public async Task<ActionResult<RoomDTO>> GetRoom(int id)
+    {
+        var room = await _context.Rooms
+            .Where(r => r.RoomId == id)
+            .Select(r => new RoomDTO
+            {
+                RoomId = r.RoomId,
+                RoomTitle = r.RoomTitle,
+                RoomTypeId = r.RoomTypeId,
+                RoomDescription = r.RoomDescription,
+                RoomImage = r.RoomImage,
+                RoomStatus = r.RoomStatus
+            })
+            .FirstOrDefaultAsync();
+        if (room == null)
+            return NotFound();
+        return room;
+    }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutRoom(int id, Room room)
+    [HttpPost]
+    public async Task<ActionResult<RoomDTO>> PostRoom([FromBody] RoomDTO RoomDTO)
+    {
+        var room = new Room
         {
-            if (id != room.RoomId)
-            {
-                return BadRequest();
-            }
-            _context.Entry(room).State = EntityState.Modified;
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!_context.Rooms.Any(e => e.RoomId == id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            return NoContent();
-        }
+            RoomTitle = RoomDTO.RoomTitle,
+            RoomTypeId = RoomDTO.RoomTypeId,
+            RoomDescription = RoomDTO.RoomDescription,
+            RoomImage = RoomDTO.RoomImage,
+            RoomStatus = RoomDTO.RoomStatus
+        };
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteRoom(int id)
-        {
-            var room = await _context.Rooms.FindAsync(id);
-            if (room == null)
-            {
-                return NotFound();
-            }
-            _context.Rooms.Remove(room);
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
+        _context.Rooms.Add(room);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction(nameof(GetRoom), new { id = room.RoomId }, RoomDTO);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutRoom(int id, [FromBody] RoomDTO RoomDTO)
+    {
+        var room = await _context.Rooms.FindAsync(id);
+        if (room == null)
+            return NotFound();
+
+        room.RoomTitle = RoomDTO.RoomTitle;
+        room.RoomTypeId = RoomDTO.RoomTypeId;
+        room.RoomDescription = RoomDTO.RoomDescription;
+        room.RoomImage = RoomDTO.RoomImage;
+        room.RoomStatus = RoomDTO.RoomStatus;
+
+        _context.Entry(room).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteRoom(int id)
+    {
+        var room = await _context.Rooms.FindAsync(id);
+        if (room == null)
+            return NotFound();
+
+        _context.Rooms.Remove(room);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
     }
 }

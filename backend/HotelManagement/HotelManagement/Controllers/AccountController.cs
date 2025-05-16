@@ -32,13 +32,15 @@ namespace HotelManagement.Controllers
                 Fullname = newUser.Fullname,
                 Email = newUser.Email,
                 Phone = newUser.Phone,
-                Password = newUser.Password
+                Password = newUser.Password,
+                IsStaff = false,            // explicitly set to false
+                RoleName = "customer"
             };
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return Ok(new { user.UserId, user.Fullname, user.Email });
+            return Ok(new { user.UserId, user.Fullname, user.Email, user.IsStaff, user.RoleName });
         }
 
         // POST: api/Account/login

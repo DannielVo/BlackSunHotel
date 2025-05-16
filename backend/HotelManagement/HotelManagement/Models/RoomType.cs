@@ -12,7 +12,8 @@ public partial class RoomType
     [Key]
     [Column("roomTypeId")]
     public int RoomTypeId { get; set; }
-
+    [Column(TypeName = "varchar(255)")]  
+    public string RoomTypeName { get; set; }
     [Column("roomDesc")]
     [StringLength(255)]
     public string? RoomDesc { get; set; }

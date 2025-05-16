@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HotelManagement.Models;
+using HotelManagement.DTOs;
 
 namespace HotelManagement.Controllers
 {
@@ -81,5 +82,72 @@ namespace HotelManagement.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+        [HttpGet("check-availability")]
+        public async Task<IActionResult> CheckAvailability(DateOnly checkIn, DateOnly checkOut)
+        {
+            var bookedRoomIds = await _context.BookingDetails
+                .Where(d => d.Booking.CheckInDate < checkOut && d.Booking.CheckOutDate > checkIn)
+                .Select(d => d.RoomId)
+                .Distinct()
+                .ToListAsync();
+
+            var availableRooms = await _context.Rooms
+                .Where(r => !bookedRoomIds.Contains(r.RoomId) && r.RoomStatus == "available")
+                .ToListAsync();
+
+            return Ok(availableRooms);
+        }
+        [HttpPost("confirm")]
+        public async Task<IActionResult> ConfirmBooking([FromBody] ConfirmBookingDTO request)
+        {
+            if (request.RoomIds == null || request.RoomIds.Count == 0)
+            {
+                return BadRequest("Must include at least one room.");
+            }
+
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            try
+            {
+                var booking = new Booking
+                {
+                    UserId = request.UserId,
+                    Fullname = request.Fullname,
+                    Email = request.Email,
+                    Phone = request.Phone,
+                    CheckInDate = request.CheckInDate,
+                    CheckOutDate = request.CheckOutDate,
+                    TotalPrice = request.TotalPrice,
+                    PaymentStatus = "pending"
+                };
+
+                _context.Bookings.Add(booking);
+                await _context.SaveChangesAsync(); // BookingId is generated here
+
+                foreach (var roomId in request.RoomIds)
+                {
+                    var detail = new BookingDetail
+                    {
+                        BookingId = booking.BookingId,
+                        RoomId = roomId
+                    };
+                    _context.BookingDetails.Add(detail);
+                }
+
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return Ok(new
+                {
+                    Message = "Booking confirmed.",
+                    BookingId = booking.BookingId
+                });
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
+        }
+
     }
 }

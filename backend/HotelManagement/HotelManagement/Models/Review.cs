@@ -12,9 +12,6 @@ public partial class Review
     [Column("reviewId")]
     public int ReviewId { get; set; }
 
-    [Column("roomId")]
-    public int RoomId { get; set; }
-
     [Column("userId")]
     public int UserId { get; set; }
 
