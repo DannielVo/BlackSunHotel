@@ -19,8 +19,9 @@ public partial class RoomService
     [Column(TypeName = "datetime")]
     public DateTime ServiceDateTime { get; set; }
 
-    [Column("isCleaningDone")]
-    public bool IsCleaningDone { get; set; }
+    [Column("roomServiceStatus")]
+    [StringLength(50)]
+    public string RoomServiceStatus { get; set; } = "pending";
 
     [ForeignKey("RoomId")]
     [InverseProperty("RoomServices")]

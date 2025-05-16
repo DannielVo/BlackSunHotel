@@ -91,7 +91,7 @@ CREATE TABLE RoomService (
     roomServiceId INT IDENTITY(1,1) NOT NULL,
     roomId INT NOT NULL,
     ServiceDateTime DATETIME NOT NULL,
-    isCleaningDone BIT NOT NULL DEFAULT 0,
+    roomServiceStatus VARCHAR(50) NOT NULL DEFAULT 'pending',
     CONSTRAINT PK_RoomService PRIMARY KEY CLUSTERED (roomServiceId),
     CONSTRAINT FK_RoomService_Rooms FOREIGN KEY (roomId) REFERENCES Rooms(roomId)
 );
