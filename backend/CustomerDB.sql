@@ -28,7 +28,7 @@ CREATE TABLE Users (
 -- Table: RoomType
 CREATE TABLE RoomType (
     roomTypeId INT IDENTITY(1,1) NOT NULL,
-	roomTypeName NVARCHAR(255) NOT NULL,
+	roomName NVARCHAR(255) NOT NULL,
     roomDesc NVARCHAR(255) NULL,
     roomFeatures NVARCHAR(MAX) NULL,
     roomAmenities NVARCHAR(MAX) NULL,

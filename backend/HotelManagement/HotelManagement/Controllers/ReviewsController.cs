@@ -48,30 +48,18 @@ public class ReviewsController : ControllerBase
         return review;
     }
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> PutReview(int id, [FromBody] ReviewDTO ReviewDTO)
+    [HttpPost("add")]
+    public async Task<ActionResult<ReviewDTO>> AddReview([FromBody] ReviewDTO reviewDto)
     {
-        if (id != ReviewDTO.ReviewId) return BadRequest();
-
-        var existingReview = await _context.Reviews.FindAsync(id);
-        if (existingReview == null) return NotFound();
-
-        // Update only allowed fields
-        existingReview.UserId = ReviewDTO.UserId;
-        existingReview.BookingId = ReviewDTO.BookingId;
-        existingReview.ReviewContent = ReviewDTO.ReviewContent;
-        existingReview.Rating = ReviewDTO.Rating;
-
-        try
+        var review = new Review
         {
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!_context.Reviews.Any(e => e.ReviewId == id))
-                return NotFound();
-            throw;
-        }
-        return NoContent();
+            UserId = reviewDto.UserId,
+            BookingId = reviewDto.BookingId,
+            ReviewContent = reviewDto.ReviewContent,
+            Rating = reviewDto.Rating
+        };
+        _context.Reviews.Add(review);
+        await _context.SaveChangesAsync();
+        return CreatedAtAction(nameof(GetReview), new { id = review.ReviewId }, reviewDto);
     }
 }
