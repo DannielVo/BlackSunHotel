@@ -36,10 +36,6 @@ public partial class Booking
     [Column("paymentStatus")]
     [StringLength(50)]
     public string PaymentStatus { get; set; } = "pending";
-
-    [Timestamp]
-    public byte[] RowVersion { get; set; } // Concurrency token
-
     [InverseProperty("Booking")]
     public virtual ICollection<BookingDetail> BookingDetails { get; set; } = new List<BookingDetail>();
 
